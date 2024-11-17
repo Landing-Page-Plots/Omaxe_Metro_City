@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Landing Page</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Include intl-tel-input CSS and JS from CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+</head>
+<body>
+
+  <!-- Fullscreen Banner Image -->
+  <div class="banner">
+    <img src="banner1.jpg" alt="Banner Image" class="banner-image" />
+    <div>
+      <button class="btn-banner" onclick="showPopup()">Book your Visit NOW.!</button>
+    </div>
+  </div>
+
+
+  <!-- Section with Left Text and Right Image -->
+  <div class="content-section">
+    <div class="text-content">
+      <h1>OMAXE METRO CITY -</h1>
+      <h2>A WORLD-CLASS TOWNSHIP THAT THE OUTER RING ROAD PASSES THROUGH</h2>
+      <ul>
+        <li>A hi-tech township spread over a massive area of <br> <b>690* acres (279.23 hectares)</b> at kalli Pashchim. </li>
+        <li>Robust Infrastructure and state-of-the-art amenities for <br> a comprehensive & luxurious lifestyle</li>
+        <li>Offers <b>Commercial & Retail Outlets, Plots, Villas,<br> Floors and Group Housing</b> as per different <br> requirements & budget.</li>
+        <li>Excellent connectivity to other areas of Lucknow & neighboring cities.</li>
+        <!-- <li>Spacious 3 BHK + Servant unit residencies.</li>
+        <li>Central landscape arena with over 16 lifestyle features.</li> -->
+      </ul>
+    </div>
+    <div class="image-content">
+      <img src="banner2.jpg" alt="Service Image" />
+    </div>
+  </div>
+
+  <!-- Centered Section with Logos
+  <div class="partners-section">
+    <h1>Our Trusted Partners</h1>
+    <div class="logos">
+      <div class="logo-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZaUzw2pmQvD8BFibZ8F9fcoyJGGjYAxe6NA&s" alt="Logo 1" />
+        <h4>Home to a vibrant community of 15,000 families.</h4>
+      </div>
+      <div class="logo-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZaUzw2pmQvD8BFibZ8F9fcoyJGGjYAxe6NA&s" alt="Logo 2" />
+        <h4>LDA-approved integrated township spanning 223.52 acres.</h4>
+      </div>
+      <div class="logo-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZaUzw2pmQvD8BFibZ8F9fcoyJGGjYAxe6NA&s" alt="Logo 3" />
+        <h4>Lush greenery across 31.775 acres of vibrant landscapes.</h4>
+      </div>
+      <div class="logo-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZaUzw2pmQvD8BFibZ8F9fcoyJGGjYAxe6NA&s" alt="Logo 4" />
+        <h4>An exquisite 1.5-acre aqua center.</h4>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Centered Content Section with Logos -->
+  <!-- <div class="centered-section">
+    <h1 class="main-heading">Project Highlights</h1>
+    <h2 class="subheading">Unveiling the World of Harmonious Living</h2>
+
+    <div class="logos-container">
+      <div class="logo-item">
+        <img src="reshot-icon-bird-home-ZCW6R4NAKD.svg" alt="Logo 1" class="logo" />
+        <p class="logo-text">Home to a vibrant community of 15,000 families.</p>
+      </div>
+      <div class="logo-item">
+        <img src="reshot-icon-identifiable-natural-person-YUSDNEJ4MV.svg" alt="Logo 2" class="logo" />
+        <p class="logo-text">LDA-approved integrated township spanning 223.52 acres.</p>
+      </div>
+      <div class="logo-item">
+        <img src="reshot-icon-landing-page-optimization-CV258DHAMK.svg" alt="Logo 3" class="logo" />
+        <p class="logo-text">Lush greenery across 31.775 acres of vibrant landscapes.</p>
+      </div>
+      <div class="logo-item">
+        <img src="reshot-icon-landing-page-QTWNK6BDG3.svg" alt="Logo 4" class="logo" />
+        <p class="logo-text">Lush greenery across 31.775 acres of vibrant landscapes.</p>
+      </div>
+    </div>
+  </div> -->
+
+
+  <!-- new -->
+ <!-- <div class="amenities-section">
+  <h3>PROJECT AMENITIES</h3>
+  <h1>The Epitome of Leisure and Recreation</h1>
+  <div class="image-slider">
+      <button class="prev" onclick="slideLeft()">&#10094;</button>
+      <div class="slider-container">
+          <div class="slider-wrapper">
+              <div class="slider-item">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1zvbQN6BQE2pdRJ1MelX3waJRDgNRwqRLbw&s" alt="Gymnasium">
+                  <p>Gymnasium</p>
+              </div>
+              <div class="slider-item">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1zvbQN6BQE2pdRJ1MelX3waJRDgNRwqRLbw&s" alt="Indoor Games">
+                  <p>Indoor Games</p>
+              </div>
+              <div class="slider-item">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1zvbQN6BQE2pdRJ1MelX3waJRDgNRwqRLbw&s" alt="Indoor Kids Play Area">
+                  <p>Indoor Kids Play Area</p>
+              </div>
+              <div class="slider-item">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1zvbQN6BQE2pdRJ1MelX3waJRDgNRwqRLbw&s" alt="Indoor Kids Play Area">
+                  <p>Indoor Kids Play Area</p>
+              </div>
+              <div class="slider-item">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1zvbQN6BQE2pdRJ1MelX3waJRDgNRwqRLbw&s" alt="Indoor Kids Play Area">
+                  <p>Indoor Kids Play Area</p>
+              </div>
+              <div class="slider-item">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1zvbQN6BQE2pdRJ1MelX3waJRDgNRwqRLbw&s" alt="Indoor Kids Play Area">
+                  <p>Indoor Kids Play Area</p>
+              </div>
+          </div>
+      </div>
+      <button class="next" onclick="slideRight()">&#10095;</button>
+  </div>
+</div> -->
+
+
+  <!-- Main Container -->
+  <!-- <div class="main-container">
+    <div class="slider-container">
+      <h1 class="slider-heading">Project Amenities</h1>
+      <h2 class="slider-subheading">The Epitome of Leisure and Recreation</h2>
+
+      <div class="slider">
+        <button class="prev0" onclick="moveSlide(-1)">&#10094;</button>
+
+        <div class="slides-wrapper">
+          <div class="slide">
+            <img src="https://archipro.com.au/assets/article/building/Form-Apartments-Port-Coogee-by-Stiebel-Eltron--v2.jpg?raw=1" alt="Image 1" />
+            <img src="https://anuhar.com/blog/wp-content/uploads/2022/11/apartment-in-Hyderabad.png" alt="Image 2" />
+          </div>
+          <div class="slide">
+            <img src="image3.jpg" alt="Image 3" />
+            <img src="image4.jpg" alt="Image 4" />
+          </div>
+          <div class="slide">
+            <img src="https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2022/10/condo-vs-apartment.jpeg.jpg" alt="Image 5" />
+            <img src="image6.jpg" alt="Image 6" />
+          </div>
+        </div>
+          <button class="next" onclick="moveSlide(1)">&#10095;</button>  
+      </div>
+    </div>
+  </div> -->
+ 
+
+ <!-- Popup Form Container -->
+ <div id="popupForm" class="popup-container">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <h2>Reach Us Now .</h2>
+    <h4>Basic Info For Interested People .</h4>
+    <form id="contactForm"   action="https://formspree.io/f/xrbgkypq"
+    method="POST" onsubmit="handlePopupSubmit(event)" >
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="Name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="Email" required>
+
+      <label for="mobile">Mobile Number:</label>
+      <input type="tel" id="mobile" name="Mobile" required>
+
+      <label for="address">Budget:</label>
+      <textarea id="address" name="Budget" required></textarea>
+
+      <button id="popup-btn" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<div class="btn-2">
+
+  <div class="form-container">
+    <h1>Enquire Now</h1>
+    <form class="contact-form" action="https://formspree.io/f/xrbgkypq"
+    method="POST">
+      <input type="text" placeholder="Your name" name="Lname" required>
+      <input type="email" placeholder="Your email" name="email-l" required>
+  
+      <!-- Phone input with intl-tel-input -->
+      <input id="phone" type="tel" placeholder="Phone" name="Ph-No" required>
+  
+      <button type="submit">SUBMIT</button>
+    </form>
+  
+    <label class="checkbox-label">
+      <input type="checkbox"> Yes, I would like to receive updates & promotions from Shalimar Corp.
+    </label>
+  </div>
+
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+</body>
+</html>
