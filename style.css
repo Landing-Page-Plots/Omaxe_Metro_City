@@ -438,6 +438,8 @@ button.next:hover {
   }
   .btn-banner {
     width: 20%;
+    font-size: 7px;
+    font-weight: bold;
   }
 }
 
