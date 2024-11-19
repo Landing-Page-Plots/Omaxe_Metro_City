@@ -94,7 +94,7 @@ function closePopup() {
 }
 
 // Show the popup every few seconds if form is not submitted
-setInterval(showPopup, 4000); // 5000 milliseconds = 5 seconds
+setInterval(showPopup, 5000); // 5000 milliseconds = 5 seconds
 
 // Handle form submission
 document.getElementById("contactForm").onsubmit = function(event) {
@@ -109,6 +109,16 @@ document.getElementById("contactForm").onsubmit = function(event) {
   // You can also submit the form to Formspree or other services here
   this.submit(); // Form submission happens here (this will trigger Formspree form submission)
 };
+
+if (!isFormSubmitted) {
+  showPopup(); // Show popup if form is not submitted
+}
+
+window.onbeforeunload = function() {
+  // Clear localStorage when user closes or reloads the page
+  localStorage.removeItem('formSubmitted');
+};
+
 
 // Optional: You can remove the sessionStorage flag after certain time or on specific event
 // sessionStorage.removeItem('formSubmitted'); // Uncomment if you want to reset flag after some time
