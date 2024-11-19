@@ -94,7 +94,7 @@ function closePopup() {
 }
 
 // Show the popup every few seconds if form is not submitted
-setInterval(showPopup, 5000); // 5000 milliseconds = 5 seconds
+setInterval(showPopup, 4000); // 5000 milliseconds = 5 seconds
 
 // Handle form submission
 document.getElementById("contactForm").onsubmit = function(event) {
