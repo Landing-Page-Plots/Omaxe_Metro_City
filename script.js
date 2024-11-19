@@ -1,37 +1,130 @@
-// Check if the popup has already been shown or form is submitted
+// let currentSlide = 0;
+
+// function showSlides() {
+//   const slides = document.querySelector('.slides-wrapper');
+//   const totalSlides = document.querySelectorAll('.slide').length;
+//   slides.style.transform = `translateX(${-100 * currentSlide}%)`;
+// }
+
+// function moveSlide(n) {
+//   const totalSlides = document.querySelectorAll('.slide').length;
+//   currentSlide = (currentSlide + n + totalSlides) % totalSlides;
+//   showSlides();
+// }
+
+// // Automatic slide change every 3 seconds
+// setInterval(() => {
+//   moveSlide(1);
+// }, 7000);
+
+// showSlides();
+
+// let currentIndex = 0;
+
+// function slideLeft() {
+//     const sliderWrapper = document.querySelector('.slider-wrapper');
+//     const items = document.querySelectorAll('.slider-item');
+//     const itemsToShow = 3;
+//     const itemWidth = 300;
+
+//     currentIndex = Math.max(currentIndex - 1, 0);
+//     sliderWrapper.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+// }
+
+// function slideRight() {
+//     const sliderWrapper = document.querySelector('.slider-wrapper');
+//     const items = document.querySelectorAll('.slider-item');
+//     const itemsToShow = 3;
+//     const itemWidth = 300;
+
+//     currentIndex = Math.min(currentIndex + 1, items.length - itemsToShow);
+//     sliderWrapper.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+// }
+
+// let isSubmitted = false; // Flag to check if the form is submitted
+
+// // Function to show the popup after a delay
+// function showPopup() {
+//   if (!isSubmitted) { // Show the popup only if the form is not submitted
+//     document.getElementById("popupForm").style.display = "flex";
+//   }
+// }
+
+// // Function to close the popup
+// function closePopup() {
+//   document.getElementById("popupForm").style.display = "none";
+// }
+
+// // Show the popup every few seconds
+// setInterval(showPopup, 6000); // 10000 milliseconds = 10 seconds
+
+// // Close popup on form submission and set the isSubmitted flag
+// // document.getElementById("contactForm").onsubmit = function(event) {
+// //   event.preventDefault(); // Prevent form from submitting to server
+// //   alert("Form submitted successfully!");
+// //   closePopup(); // Close the popup after submission
+// //   isSubmitted = true; // Set the flag to true to prevent popup from showing again
+// // };
+
+// // function handlePopupSubmit(event) {
+// //   // Optional: Add custom validation or other logic if needed
+// //   closePopup(); // Close the popup after submission
+// //   isSubmitted = true; // Set the flag to prevent future popups
+// // }
+
+// // Handle form submission
+// document.getElementById("contactForm").onsubmit = function () {
+//   closePopup(); // Close the popup after submission
+//   isSubmitted = true; // Set the flag to prevent popup from showing again
+// };
+
+
+// Check if the popup has been shown or the form is submitted
 let isPopupShown = sessionStorage.getItem('popupShown');
 let isFormSubmitted = sessionStorage.getItem('formSubmitted');
+let popupInterval;
 
-// Function to show the popup if it hasn't been shown already
+// Function to show the popup if it hasn't been shown and form not submitted
 function showPopup() {
-  if (!isPopupShown && !isFormSubmitted) {  // Show popup only if form is not submitted
+  if (!isPopupShown && !isFormSubmitted) {  // Only show the popup if form is not submitted yet
     document.getElementById("popupForm").style.display = "flex";
   }
 }
 
-// Function to close the popup and mark it as shown in sessionStorage
+// Function to close the popup and set 'popupShown' flag in sessionStorage
 function closePopup() {
   document.getElementById("popupForm").style.display = "none";
-  sessionStorage.setItem('popupShown', 'true'); // Mark the popup as shown
+  sessionStorage.setItem('popupShown', 'true');  // Mark popup as shown
+  
+  // Start the interval to show the popup again after every 5 seconds if the popup is closed
+  popupInterval = setInterval(showPopup, 5000); // Show popup every 5 seconds
 }
 
-// Handle form submission (Formspree integration)
+// Function to handle form submission (Formspree)
 document.getElementById("contactForm").onsubmit = function(event) {
-  event.preventDefault(); // Prevent normal form submission
-
-  // Mark form as submitted in sessionStorage
+  event.preventDefault();  // Prevent normal form submission
+  
+  // Mark the form as submitted in sessionStorage
   sessionStorage.setItem('formSubmitted', 'true');
   
   // Close the popup after form submission
-  closePopup();
+  document.getElementById("popupForm").style.display = "none";
   
-  // Submit the form via Formspree
-  this.submit(); // You can trigger Formspree here or your form's submission method
+  // Proceed with Formspree form submission
+  this.submit();  // Submit the form to Formspree
 };
 
-// Reset sessionStorage only when the page is reloaded or tab is closed
+// Function to stop popup from showing after form submission
+function stopPopup() {
+  clearInterval(popupInterval);  // Stop the popup interval after form is submitted
+}
+
+// Show the popup on page load if not already shown
+setTimeout(showPopup, 5000);  // Delay for 5 seconds to show the popup after page load
+
+// Check if the user reloads or revisits the page, reset popupShown
 window.onbeforeunload = function() {
-  sessionStorage.removeItem('popupShown'); // Reset popup shown flag when tab is closed
+  sessionStorage.removeItem('popupShown');  // Reset popup flag when page/tab is closed
 };
 
 
