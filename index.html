@@ -9,6 +9,13 @@
   <!-- Include intl-tel-input CSS and JS from CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KLKQXTNT');</script>
+    
 </head>
 <body>
 
@@ -163,8 +170,8 @@
     <span class="close" onclick="closePopup()">&times;</span>
     <h2>Reach Us Now .</h2>
     <h4>Basic Info For Interested People .</h4>
-    <form id="contactForm"   action="https://formspree.io/f/xzzbvroe"
-    method="POST" onsubmit="handlePopupSubmit(event)" >
+    <form id="contactForm"   
+    method="POST" name="contact" onsubmit="handlePopupSubmit(event)" >
       <label for="name">Name:</label>
       <input type="text" id="name" name="Name" required>
 
@@ -172,12 +179,15 @@
       <input type="email" id="email" name="Email" required>
 
       <label for="mobile">Mobile Number:</label>
-      <input type="tel" id="mobile" name="Mobile" required>
+      <input type="tel" id="mobile" name="Mobile No" required>
 
       <label for="address">Budget:</label>
       <textarea id="address" name="Budget" required></textarea>
 
       <button id="popup-btn" type="submit">Submit</button>
+      <div>
+        <p id="demo"> </p>
+      </div>
     </form>
   </div>
 </div>
@@ -186,25 +196,43 @@
 
   <div class="form-container">
     <h1>Enquire Now</h1>
-    <form id="contactForm2" class="contact-form" action="https://formspree.io/f/xzzbvroe"
-    method="POST">
-      <input type="text" placeholder="Your name" name="Lname" required>
-      <input type="email" placeholder="Your email" name="email-l" required>
+    <form id="contactForm2" class="contact-form" 
+    method="POST" name="contact" action="https://script.google.com/macros/s/AKfycbzxrr7MTnVRNcOArrV5yW7KwiTpXkUEgb7DCu4xZVrxsIN-qP0SF-NI3gEo_8Js7dV61w/exec">
+      <input type="text" placeholder="Your name" name="Name" required>
+      <input type="email" placeholder="Your email" name="Email" required>
   
       <!-- Phone input with intl-tel-input -->
-      <input id="phone" type="tel" placeholder="Phone" name="Phone" required>
+      <input id="phone" type="tel" placeholder="Phone" name="Mobile No" required>
   
       <button type="submit">SUBMIT</button>
+      <div>
+        <p id="demo"> </p>
+      </div>
     </form>
   
     <label class="checkbox-label">
-      <input type="checkbox"> Yes, I would like to receive updates & promotions from Shalimar Corp.
+      <input type="checkbox" name="checkbox"> Yes, I would like to receive updates & promotions from Proplly Corp.
     </label>
   </div>
 
 </div>
 
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzxrr7MTnVRNcOArrV5yW7KwiTpXkUEgb7DCu4xZVrxsIN-qP0SF-NI3gEo_8Js7dV61w/exec'
+  const form = document.forms['contact']
+  
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => document.getElementById("demo").innerHTML = "<div class='alert alert-primary' role='alert'><b>Thank You for providing the details, We shall get back to you shortly !</b></div>",contact.reset())
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
 
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLKQXTNT"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
   <script src="script.js"></script>
 </body>
 </html>
