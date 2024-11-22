@@ -41,91 +41,91 @@
 //     sliderWrapper.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
 // }
 
-// let isSubmitted = false; // Flag to check if the form is submitted
+let isSubmitted = false; // Flag to check if the form is submitted
 
-// // Function to show the popup after a delay
-// function showPopup() {
-//   if (!isSubmitted) { // Show the popup only if the form is not submitted
-//     document.getElementById("popupForm").style.display = "flex";
-//   }
-// }
-
-// // Function to close the popup
-// function closePopup() {
-//   document.getElementById("popupForm").style.display = "none";
-// }
-
-// // Show the popup every few seconds
-// setInterval(showPopup, 6000); // 10000 milliseconds = 10 seconds
-
-// // Close popup on form submission and set the isSubmitted flag
-// // document.getElementById("contactForm").onsubmit = function(event) {
-// //   event.preventDefault(); // Prevent form from submitting to server
-// //   alert("Form submitted successfully!");
-// //   closePopup(); // Close the popup after submission
-// //   isSubmitted = true; // Set the flag to true to prevent popup from showing again
-// // };
-
-// // function handlePopupSubmit(event) {
-// //   // Optional: Add custom validation or other logic if needed
-// //   closePopup(); // Close the popup after submission
-// //   isSubmitted = true; // Set the flag to prevent future popups
-// // }
-
-// // Handle form submission
-// document.getElementById("contactForm").onsubmit = function () {
-//   closePopup(); // Close the popup after submission
-//   isSubmitted = true; // Set the flag to prevent popup from showing again
-// };
-
-
-// Check if the popup has been shown or the form is submitted
-let isPopupShown = sessionStorage.getItem('popupShown');
-let isFormSubmitted = sessionStorage.getItem('formSubmitted');
-let popupInterval;
-
-// Function to show the popup if it hasn't been shown and form not submitted
+// Function to show the popup after a delay
 function showPopup() {
-  if (!isPopupShown && !isFormSubmitted) {  // Only show the popup if form is not submitted yet
+  if (!isSubmitted) { // Show the popup only if the form is not submitted
     document.getElementById("popupForm").style.display = "flex";
   }
 }
 
-// Function to close the popup and set 'popupShown' flag in sessionStorage
+// Function to close the popup
 function closePopup() {
   document.getElementById("popupForm").style.display = "none";
-  sessionStorage.setItem('popupShown', 'true');  // Mark popup as shown
-  
-  // Start the interval to show the popup again after every 5 seconds if the popup is closed
-  popupInterval = setInterval(showPopup, 5000); // Show popup every 5 seconds
 }
 
-// Function to handle form submission (Formspree)
+// Show the popup every few seconds
+setInterval(showPopup, 6000); // 10000 milliseconds = 10 seconds
+
+// Close popup on form submission and set the isSubmitted flag
 document.getElementById("contactForm").onsubmit = function(event) {
-  event.preventDefault();  // Prevent normal form submission
-  
-  // Mark the form as submitted in sessionStorage
-  sessionStorage.setItem('formSubmitted', 'true');
-  
-  // Close the popup after form submission
-  document.getElementById("popupForm").style.display = "none";
-  
-  // Proceed with Formspree form submission
-  this.submit();  // Submit the form to Formspree
+  event.preventDefault(); // Prevent form from submitting to server
+  alert("Form submitted successfully!");
+  closePopup(); // Close the popup after submission
+  isSubmitted = true; // Set the flag to true to prevent popup from showing again
 };
 
-// Function to stop popup from showing after form submission
-function stopPopup() {
-  clearInterval(popupInterval);  // Stop the popup interval after form is submitted
-}
+// function handlePopupSubmit(event) {
+//   // Optional: Add custom validation or other logic if needed
+//   closePopup(); // Close the popup after submission
+//   isSubmitted = true; // Set the flag to prevent future popups
+// }
 
-// Show the popup on page load if not already shown
-setTimeout(showPopup, 5000);  // Delay for 5 seconds to show the popup after page load
-
-// Check if the user reloads or revisits the page, reset popupShown
-window.onbeforeunload = function() {
-  sessionStorage.removeItem('popupShown');  // Reset popup flag when page/tab is closed
+// Handle form submission
+document.getElementById("contactForm").onsubmit = function () {
+  closePopup(); // Close the popup after submission
+  isSubmitted = true; // Set the flag to prevent popup from showing again
 };
+
+
+// Check if the popup has been shown or the form is submitted
+// let isPopupShown = sessionStorage.getItem('popupShown');
+// let isFormSubmitted = sessionStorage.getItem('formSubmitted');
+// let popupInterval;
+
+// // Function to show the popup if it hasn't been shown and form not submitted
+// function showPopup() {
+//   if (!isPopupShown && !isFormSubmitted) {  // Only show the popup if form is not submitted yet
+//     document.getElementById("popupForm").style.display = "flex";
+//   }
+// }
+
+// // Function to close the popup and set 'popupShown' flag in sessionStorage
+// function closePopup() {
+//   document.getElementById("popupForm").style.display = "none";
+//   sessionStorage.setItem('popupShown', 'true');  // Mark popup as shown
+  
+//   // Start the interval to show the popup again after every 5 seconds if the popup is closed
+//   popupInterval = setInterval(showPopup, 5000); // Show popup every 5 seconds
+// }
+
+// // Function to handle form submission (Formspree)
+// document.getElementById("contactForm").onsubmit = function(event) {
+//   event.preventDefault();  // Prevent normal form submission
+  
+//   // Mark the form as submitted in sessionStorage
+//   sessionStorage.setItem('formSubmitted', 'true');
+  
+//   // Close the popup after form submission
+//   document.getElementById("popupForm").style.display = "none";
+  
+//   // Proceed with Formspree form submission
+//   this.submit();  // Submit the form to Formspree
+// };
+
+// // Function to stop popup from showing after form submission
+// function stopPopup() {
+//   clearInterval(popupInterval);  // Stop the popup interval after form is submitted
+// }
+
+// // Show the popup on page load if not already shown
+// setTimeout(showPopup, 5000);  // Delay for 5 seconds to show the popup after page load
+
+// // Check if the user reloads or revisits the page, reset popupShown
+// window.onbeforeunload = function() {
+//   sessionStorage.removeItem('popupShown');  // Reset popup flag when page/tab is closed
+// };
 
 
 
@@ -139,6 +139,36 @@ window.onbeforeunload = function() {
 //     separateDialCode: true,
 //     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // for formatting and validation
 //   });
+
+
+
+  // const phoneInputField = document.querySelector("#phone");
+  // const iti = window.intlTelInput(phoneInputField, {
+  //   initialCountry: "in", // Set initial country to India (or any country of your choice)
+  //   separateDialCode: true, // Optional: Separate country code and phone number in the input
+  //   utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // For formatting and validation
+  // });
+
+  // document.getElementById("contactForm2").onsubmit = function(event) {
+  //   // Prevent default form submission
+  //   event.preventDefault();
+
+  //   if (!iti.isValidNumber()) {
+  //     alert("Please enter a valid phone number.");
+  //     return;
+  //   }
+  //   // Get the formatted phone number
+  //   const phoneNumber = iti.getNumber(); // This gives the phone number with country code
+
+  //   // Set the phone number field to the formatted phone number before submission
+  //   document.querySelector("#phone").value = phoneNumber;
+
+  //   // Submit the form after updating the phone field
+  //   this.submit();
+  // };
+
+
+
   const phoneInputField = document.querySelector("#phone");
   const iti = window.intlTelInput(phoneInputField, {
     initialCountry: "in", // Set initial country to India (or any country of your choice)
@@ -147,15 +177,34 @@ window.onbeforeunload = function() {
   });
 
   document.getElementById("contactForm2").onsubmit = function(event) {
-    // Prevent default form submission
-    event.preventDefault();
+    event.preventDefault();  // Prevent normal form submission
+
+    // Validate phone number
+    if (!iti.isValidNumber()) {
+      alert("Please enter a valid phone number.");
+      return;
+    }
 
     // Get the formatted phone number
-    const phoneNumber = iti.getNumber(); // This gives the phone number with country code
+    const phoneNumber = iti.getNumber(); 
+    document.querySelector("#phone").value = phoneNumber; // Set the formatted phone number in the input
 
-    // Set the phone number field to the formatted phone number before submission
-    document.querySelector("#phone").value = phoneNumber;
+    // Prepare form data
+    const formData = new FormData(this);
 
-    // Submit the form after updating the phone field
-    this.submit();
+    // Use fetch to submit the form data via POST
+    fetch('https://script.google.com/macros/s/AKfycbzxrr7MTnVRNcOArrV5yW7KwiTpXkUEgb7DCu4xZVrxsIN-qP0SF-NI3gEo_8Js7dV61w/exec', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert('Form submitted successfully');  // Show success alert
+      closePopup();  // Close the popup if needed
+      // Optionally reset the form if you want to clear the fields after submission
+      document.getElementById("contactForm2").reset();
+    })
+    .catch(error => {
+      alert('Error submitting form: ' + error);  // Show error if the submission fails
+    });
   };
