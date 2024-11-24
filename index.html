@@ -217,7 +217,16 @@
 
 </div>
 
-<script>
+<!-- Success Message -->
+<div id="successPopup" style="display: none; background-color: #007bff; color: white; padding: 50px; text-align: center;">
+  Form submitted successfully! We will contact you soon.
+</div>
+
+<!-- Already Submitted Message -->
+<div id="alreadySubmittedPopup" style="display: none; background-color: #007bff; color: white; padding: 50px; text-align: center;">
+  You have already submitted the form.
+</div>
+<!-- <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbzxrr7MTnVRNcOArrV5yW7KwiTpXkUEgb7DCu4xZVrxsIN-qP0SF-NI3gEo_8Js7dV61w/exec'
   const form = document.forms['contact']
   
@@ -227,7 +236,7 @@
       .then(response => document.getElementById("demo").innerHTML = "<div class='alert alert-primary' role='alert'><b>Thank You for providing the details, We shall get back to you shortly !</b></div>",contact.reset())
       .catch(error => console.error('Error!', error.message))
   })
-</script>
+</script> -->
 
 
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLKQXTNT"
