@@ -419,6 +419,7 @@ button.next:hover {
   .content-section {
     flex-direction: column;
     text-align: center;
+    font-size: 11px;
   }
 
   .text-content,
