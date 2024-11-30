@@ -286,7 +286,7 @@ function closePopup() {
 }
 
 // Start the popup interval (only if form is not submitted)
-popupInterval = setInterval(showPopup, 6000); // Show popup every 5 seconds
+popupInterval = setInterval(showPopup, 9500); // Show popup every 5 seconds
 
 // Attach form submission handlers
 document.getElementById("contactForm").onsubmit = function (event) {
