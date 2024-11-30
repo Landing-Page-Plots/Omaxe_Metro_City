@@ -53,16 +53,25 @@ body {
 .text-content h2 {
   font-size: 1em;
   margin-bottom: 10px;
-  color: #444;
+  color: #000000;
+  background-color: whitesmoke;
+  border-radius: 5%;
+  padding: 5px;
 }
 
 .text-content p,
 .text-content ul {
   font-size: 1.5em;
-  color: #666;
+  color: #000000;
+  
+
+
 }
 .text-content li {
   padding: 8px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 .image-content {
   flex: 1;
@@ -419,7 +428,8 @@ button.next:hover {
   .content-section {
     flex-direction: column;
     text-align: center;
-    font-size: 11px;
+    font-size: 10px;
+    background-color: antiquewhite;
   }
 
   .text-content,
