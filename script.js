@@ -282,7 +282,7 @@ function showPopup() {
 function closePopup() {
   document.getElementById("popupForm").style.display = "none";
   // Reset the popup interval so it shows again after 5 seconds if not submitted
-  popupInterval = setInterval(showPopup, 6000); 
+  popupInterval = setInterval(showPopup, 9500); 
 }
 
 // Start the popup interval (only if form is not submitted)
